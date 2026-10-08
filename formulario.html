@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto | Sanchez Inmobiliaria</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+         <img src="img/logo.png" alt="logo">
+
+            <span>
+                Sanchez Inmobiliaria
+            </span>
+
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="propiedades.html">
+                Propiedades
+            </a>
+
+            <a href="datos.html">
+                Nosotros
+            </a>
+
+            <a href="formulario.html" class="activo">
+                Contacto
+            </a>
+
+        </nav>
+
+    </header>
+
+    <section class="titulo-pagina">
+
+        <p>
+            SANCHEZ INMOBILIARIA
+        </p>
+
+        <h1>
+            Contactanos
+        </h1>
+
+        <span>
+            Completá el formulario y nos comunicaremos con vos.
+        </span>
+
+    </section>
+
+    <main class="formulario-contenedor">
+
+        <form id="formulario">
+
+
+            <h2>
+                Solicitud de información
+            </h2>
+
+            <p class="texto-formulario">
+                Todos los campos marcados con *
+                son obligatorios.
+            </p>
+
+            <label for="nombre">
+                Nombre completo *
+            </label>
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Ej: Juan Pérez"
+                required
+            >
+            <label for="email">
+                Correo electrónico *
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Ej: juan@gmail.com"
+                required
+            >
+
+            <label for="telefono">
+                Teléfono *
+            </label>
+
+            <input
+                type="tel"
+                id="telefono"
+                placeholder="Ej: +54 11 1234 5678"
+                required
+            >
+
+            <label for="operacion">
+                ¿Qué querés hacer? *
+            </label>
+
+            <select id="operacion" required>
+
+                <option value="">
+                    Seleccioná una opción
+                </option>
+
+                <option value="Comprar">
+                    Comprar una propiedad
+                </option>
+
+                <option value="Alquilar">
+                    Alquilar una propiedad
+                </option>
+
+                <option value="Vender">
+                    Vender una propiedad
+                </option>
+
+            </select>
+            <label for="tipo">
+                Tipo de propiedad *
+            </label>
+
+            <select id="tipo" required>
+
+                <option value="">
+                    Seleccioná una opción
+                </option>
+
+                <option>
+                    Casa
+                </option>
+
+                <option>
+                    Departamento
+                </option>
+
+                <option>
+                    PH
+                </option>
+
+                <option>
+                    Terreno
+                </option>
+
+                <option>
+                    Local comercial
+                </option>
+
+            </select>
+            <label for="ubicacion">
+                Ubicación que buscás
+            </label>
+
+            <input
+                type="text"
+                id="ubicacion"
+                placeholder="Ej: Palermo, Tigre, Pilar..."
+            >
+
+            <label for="presupuesto">
+                Presupuesto aproximado
+            </label>
+
+            <input
+                type="text"
+                id="presupuesto"
+                placeholder="Ej: USD 200.000"
+            >
+            <label for="dormitorios">
+                Cantidad de dormitorios
+            </label>
+
+            <select id="dormitorios">
+
+                <option>
+                    Indistinto
+                </option>
+
+                <option>
+                    1 dormitorio
+                </option>
+
+                <option>
+                    2 dormitorios
+                </option>
+
+                <option>
+                    3 dormitorios
+                </option>
+
+                <option>
+                    4 dormitorios
+                </option>
+
+                <option>
+                    5 o más dormitorios
+                </option>
+
+            </select>
+
+            <label for="mensaje">
+                Mensaje
+            </label>
+
+            <textarea
+                id="mensaje"
+                rows="5"
+                placeholder="Escribí tu consulta..."
+            ></textarea>
+
+
+            <label class="check">
+
+                <input
+                    type="checkbox"
+                    id="acepto"
+                    required
+                >
+
+                Acepto que Sanchez Inmobiliaria
+                se comunique conmigo.
+
+            </label>
+
+
+            <button type="submit">
+                Enviar consulta
+            </button>
+
+
+            <button
+                type="reset"
+                class="limpiar"
+            >
+                Limpiar formulario
+            </button>
+
+            <p
+                id="mensaje-formulario"
+                class="mensaje-formulario"
+            ></p>
+
+
+        </form>
+
+    </main>
+
+    <footer>
+
+        <h3>
+            Ignacio Sanchez
+        </h3>
+
+        <p>
+            54 9 11 50246133
+        </p>
+
+        <p>
+            nachurrisan@gmail.com
+        </p>
+
+    </footer>
+
+    <script>
+
+        const formulario =
+            document.getElementById("formulario");
+
+        const mensaje =
+            document.getElementById("mensaje-formulario");
+
+
+        formulario.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const nombre =
+                    document.getElementById("nombre").value.trim();
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+                const telefono =
+                    document.getElementById("telefono").value.trim();
+
+                const operacion =
+                    document.getElementById("operacion").value;
+
+                const tipo =
+                    document.getElementById("tipo").value;
+
+                const acepto =
+                    document.getElementById("acepto").checked;
+
+
+                if (nombre === "") {
+
+                    alert("Ingresá tu nombre.");
+
+                    return;
+
+                }
+
+
+                if (email === "") {
+
+                    alert("Ingresá tu correo electrónico.");
+
+                    return;
+
+                }
+
+
+                if (!email.includes("@")) {
+
+                    alert("Ingresá un correo electrónico válido.");
+
+                    return;
+
+                }
+
+
+                if (telefono === "") {
+
+                    alert("Ingresá tu teléfono.");
+
+                    return;
+
+                }
+
+
+                if (operacion === "") {
+
+                    alert("Seleccioná qué querés hacer.");
+
+                    return;
+
+                }
+
+
+                if (tipo === "") {
+
+                    alert("Seleccioná el tipo de propiedad.");
+
+                    return;
+
+                }
+
+
+                if (!acepto) {
+
+                    alert(
+                        "Tenés que aceptar la autorización de contacto."
+                    );
+
+                    return;
+
+                }
+
+
+                mensaje.textContent =
+                    "¡Consulta enviada correctamente! Nos comunicaremos con vos.";
+
+                mensaje.style.display = "block";
+
+
+                mensaje.style.color =
+                    "#315c3a";
+
+
+                mensaje.style.background =
+                    "#e4eee4";
+
+
+                mensaje.style.padding =
+                    "15px";
+
+
+                mensaje.style.marginTop =
+                    "20px";
+
+
+                formulario.reset();
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>
